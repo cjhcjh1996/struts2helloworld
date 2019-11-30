@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--constant用于常量配置-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <!--设置使用开发模式-->
+    <constant name="struts.devMode" value="true"/>
+    <!--设置默认编码为utf-8-->
+    <constant name="struts.i18n.encoding" value="utf-8" />
+
+    <package name="basePackage" extends="struts-default">
+
+        <!--配置Action-->
+        <action name="helloAction*" class="action.HelloAction" method="{1}">
+            <!--配置Result-->
+            <result name="success">
+                /{1}.jsp
+            </result>
+        </action>
+
+        <action name="loginAction" class="action.LoginAction">
+            <!--配置Result-->
+            <result name="success">
+                /hello.jsp
+            </result>
+            <result name="error">
+                /error.jsp
+            </result>
+        </action>
+
+    </package>
+
+
+</struts>
